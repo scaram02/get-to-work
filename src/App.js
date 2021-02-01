@@ -1,23 +1,35 @@
+import React, {useState} from 'react'
+import {Route} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+import AddJob from './components/AddJob'
+import JobList from './components/JobList'
+import JobView from './components/JobView'
 
-function App() {
+const App = () => {
+const [jobs, setJobs] = useState([])
+
+const addJob = job => {
+  job.id = jobs.length+1;
+  setJobs([...jobs, job])
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+
+      <AddJob addJob={addJob}/>
+      <JobList jobs={jobs}/>
+
+      <Route exact path="/:id" 
+      render={props => {
+        <JobView
+        {...props}
+        jobs={jobs}
+        />
+      }}/>
+       
+      
     </div>
   );
 }
