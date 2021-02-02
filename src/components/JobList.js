@@ -2,13 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 
 const JobList = props => (
-    //     props.jobs.length? props.jobs.map((job) => {
-    //      return (
-    //     <div>
-    //         {job.compName}
-    //     </div>
-    // ) 
-    // }) 
+   
     <div>
         {props.jobs.length? (
             

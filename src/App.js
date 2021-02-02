@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch, Link} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import AddJob from './components/AddJob'
@@ -16,20 +16,16 @@ const addJob = job => {
 
   return (
     <div>
-      
+      <Route exact path="/" />
 
       <AddJob addJob={addJob}/>
-      <JobList jobs={jobs}/>
+      <JobList jobs={jobs} />
 
-      <Route exact path="/:id" 
-      render={props => {
-        <JobView
-        {...props}
-        jobs={jobs}
-        />
-      }}/>
-       
-      
+
+<Route exact path="/:id"
+render={(props) => (
+<JobView {...props} jobs={jobs} setJobs={setJobs}/> //?? Set jobs
+)}/>
     </div>
   );
 }
