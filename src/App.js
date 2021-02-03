@@ -9,22 +9,27 @@ import JobView from './components/JobView'
 const App = () => {
 const [jobs, setJobs] = useState([])
 
+
 const addJob = job => {
   job.id = jobs.length+1;
   setJobs([...jobs, job])
 }
 
+
+
+
   return (
     <div>
       <Route exact path="/" />
-
-      <AddJob addJob={addJob}/>
+         <AddJob addJob={addJob}/>
       <JobList jobs={jobs} />
 
 
 <Route exact path="/:id"
 render={(props) => (
-<JobView {...props} jobs={jobs} setJobs={setJobs}/> //?? Set jobs
+<JobView {...props} 
+jobs={jobs} setJobs={setJobs} 
+/> 
 )}/>
     </div>
   );
