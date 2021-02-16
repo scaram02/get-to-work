@@ -20,15 +20,15 @@ const addJob = job => {
 
   return (
     <div>
-      <Route exact path="/" />
-         <AddJob addJob={addJob}/>
-      <JobList jobs={jobs} />
+    <Route exact path="/" />
+     <AddJob addJob={addJob}/>
+    <JobList jobs={jobs} />
 
 
-<Route exact path="/:id"
-render={(props) => (
-<JobView {...props} 
-jobs={jobs} setJobs={setJobs} 
+    <Route exact path="/:id"
+  render={(props) => (
+  <JobView {...props} 
+  jobs={jobs} setJobs={setJobs} 
 /> 
 )}/>
     </div>

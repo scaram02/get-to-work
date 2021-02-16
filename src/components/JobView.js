@@ -25,7 +25,7 @@ const JobView = props => {
     const [editingJob, setEditingJob] = useState(false)
 
     const toggleEditingJob = job => {
-        setEditingJob(true)
+        setEditingJob(!editingJob)
 
         setCurrentJob({id: job.id, compName: job.compName, jobTitle: job.jobTitle, url: job.url})
     }
@@ -34,6 +34,7 @@ const JobView = props => {
         setEditingJob(false)
 
         setCurrentJob(props.jobs.map((job) => (job.id === id? updatedJob: job)))
+        console.log('oh hey im on jobview and im the updateJob function showing the current job', currentJob)
     }
 
 
@@ -41,9 +42,9 @@ const JobView = props => {
         <div style={{backgroundColor: "blue"}}>
             <h1>{job.jobTitle}</h1>
             <h2>{job.compName}</h2>
-            <button onClick={() => setEditingJob(!editingJob)}>TogglEdit</button>
+            <button onClick={() => toggleEditingJob(job)}>TogglEdit</button>
             {editingJob? (
-               <EditJob job={job} editingJob={editingJob} setEditingJob={setEditingJob} toggleEditingJob={toggleEditingJob} updateJob={updateJob}/>  
+               <EditJob job={job} editingJob={editingJob} updateJob={updateJob} currentJob={currentJob} job={job}/>  
             ) : <div/>}
             <button onClick={() => deleteJob(job.id)}>Delete me</button>
             {/* <Link to="/">back</Link> */}
