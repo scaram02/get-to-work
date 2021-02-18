@@ -20,34 +20,42 @@ const JobView = props => {
 
 
     //edit
-    const blankForm = {id: null, jobTitle: '', compName: '', applyBy: '', url: ''}
+    const blankForm = {id: '', jobTitle: '', compName: '', applyBy: '', url: ''}
     const [currentJob, setCurrentJob] = useState(blankForm)
     const [editingJob, setEditingJob] = useState(false)
 
     const toggleEditingJob = job => {
         setEditingJob(!editingJob)
 
-        setCurrentJob({id: job.id, compName: job.compName, jobTitle: job.jobTitle, url: job.url})
+        setCurrentJob({id: job.id, compName: job.compName, jobTitle: job.jobTitle, url: job.url}) 
     }
 
     const updateJob = (id, updatedJob) => {
-        setEditingJob(false)
-
-        setCurrentJob(props.jobs.map((job) => (job.id === id? updatedJob: job)))
-        console.log('oh hey im on jobview and im the updateJob function showing the current job', currentJob)
+        setEditingJob(!editingJob)
+        props.setJobs(props.jobs.map((job) => (job.id == id? updatedJob: job)))
     }
 
+    const showJob = <p>See {job.url} for more info</p>
 
     return (
         <div style={{backgroundColor: "blue"}}>
             <h1>{job.jobTitle}</h1>
             <h2>{job.compName}</h2>
-            <button onClick={() => toggleEditingJob(job)}>TogglEdit</button>
-            {editingJob? (
-               <EditJob job={job} editingJob={editingJob} updateJob={updateJob} currentJob={currentJob} job={job}/>  
+            <h3>{job.applyBy}</h3>
+            {job.url && showJob}
+           <button onClick={() => toggleEditingJob(job)}>TogglEdit</button>
+            {editingJob? 
+            (
+               <EditJob 
+               job={job} 
+               setEditingJob={setEditingJob} 
+               editingJob={editingJob} 
+               updateJob={updateJob} 
+               currentJob={currentJob}/>  
             ) : <div/>}
+
             <button onClick={() => deleteJob(job.id)}>Delete me</button>
-            {/* <Link to="/">back</Link> */}
+            <Link to="/">back</Link>
         </div>
     )
 }

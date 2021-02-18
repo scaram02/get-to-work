@@ -19,7 +19,7 @@ const addJob = job => {
 
 
   return (
-    <div>
+    <div className='container'>
     <Route exact path="/" />
      <AddJob addJob={addJob}/>
     <JobList jobs={jobs} />
