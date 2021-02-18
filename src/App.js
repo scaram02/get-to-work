@@ -21,8 +21,11 @@ const addJob = job => {
   return (
     <div className='container'>
     <Route exact path="/" />
+     <JobList jobs={jobs} />
+
+     <div className="content-container">
      <AddJob addJob={addJob}/>
-    <JobList jobs={jobs} />
+    
 
 
     <Route exact path="/:id"
@@ -31,6 +34,7 @@ const addJob = job => {
   jobs={jobs} setJobs={setJobs} 
 /> 
 )}/>
+</div>
     </div>
   );
 }

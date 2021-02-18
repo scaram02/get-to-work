@@ -1,12 +1,37 @@
-/* .container {
+.container {
   display: flex;
+  flex-direction: row;
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 15%;
+  background-color: rgb(20, 192, 135);
 }
 
-.add {
+.job {
+  /* make so this is only for active */
+  background-color: rgb(18, 172, 120);
+  color: white;
+  text-decoration: none;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
-.list-container {
-  display: flex;
-  flex-direction: column
-} */
+input {
+  margin: 5px;
+  height: 20px;
+  /* border: none; */
+}
+
+button {
+  background-color: rgb(20, 192, 135);
+  border: none;
+  height: 25px;
+  margin-left: 5px;
+}
