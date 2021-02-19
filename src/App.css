@@ -11,16 +11,26 @@
 }
 
 .job {
-  /* make so this is only for active */
-  background-color: rgb(18, 172, 120);
   color: white;
   text-decoration: none;
+}
+
+.job:hover {
+  background-color: rgb(18, 172, 120);
+}
+
+#remove:hover {
+  background-color: rgb(228, 58, 58);
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+form {
+  margin-left: 10px;
 }
 
 input {
@@ -34,4 +44,14 @@ button {
   border: none;
   height: 25px;
   margin-left: 5px;
+  color: rgb(0, 0, 0);
+}
+
+a {
+  text-decoration: none;
+}
+
+.view {
+  margin-left: 15px;
+  color: rgb(87, 87, 87);
 }

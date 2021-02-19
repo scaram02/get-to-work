@@ -38,12 +38,13 @@ const JobView = props => {
     const showJob = <p>See {job.url} for more info</p>
 
     return (
-        <div style={{backgroundColor: "blue"}}>
+        <div className='view'>
             <h1>{job.jobTitle}</h1>
             <h2>{job.compName}</h2>
             <h3>{job.applyBy}</h3>
             {job.url && showJob}
-           <button onClick={() => toggleEditingJob(job)}>TogglEdit</button>
+            <button id='remove' onClick={() => deleteJob(job.id)}>Remove this Job</button>
+           <button onClick={() => toggleEditingJob(job)}>Edit this Job</button>
             {editingJob? 
             (
                <EditJob 
@@ -54,8 +55,8 @@ const JobView = props => {
                currentJob={currentJob}/>  
             ) : <div/>}
 
-            <button onClick={() => deleteJob(job.id)}>Delete me</button>
-            <Link to="/">back</Link>
+            
+            {/* <Link to="/">back</Link> */}
         </div>
     )
 }

@@ -46,7 +46,7 @@ const EditJob = props => {
             value={job.url  || ''} 
             onChange={handleInputChange}/>
 
-            <button >Edit Job</button>
+            <button >Save edits</button>
             </form>
         </div>
     )
