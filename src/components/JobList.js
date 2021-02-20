@@ -15,7 +15,7 @@ const JobList = props => (
             </Link>
             
             ))
-         ) : ( <h1>no jobs...yet</h1>)}
+         ) : ( <p style={{fontWeight: 'bold'}, {textAlign: "center"}}>no jobs...yet</p>)}
     </div>
    
 )

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import EditJob from './EditJob'
+import Finished from './Finished'
 
 
 const JobView = props => {
@@ -35,7 +36,10 @@ const JobView = props => {
         props.setJobs(props.jobs.map((job) => (job.id == id? updatedJob: job)))
     }
 
+    const [finished, setFinished] = useState(false)
+
     const showJob = <p>See {job.url} for more info</p>
+    const notes = <p>{job.notes}</p>
 
     return (
         <div className='view'>
@@ -43,6 +47,7 @@ const JobView = props => {
             <h2>{job.compName}</h2>
             <h3>{job.applyBy}</h3>
             {job.url && showJob}
+            {job.notes && notes}
             <button id='remove' onClick={() => deleteJob(job.id)}>Remove this Job</button>
            <button onClick={() => toggleEditingJob(job)}>Edit this Job</button>
             {editingJob? 
@@ -54,7 +59,8 @@ const JobView = props => {
                updateJob={updateJob} 
                currentJob={currentJob}/>  
             ) : <div/>}
-
+        <Finished finished={finished} setFinished={setFinished}/>
+        
             
             {/* <Link to="/">back</Link> */}
         </div>

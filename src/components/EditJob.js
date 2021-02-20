@@ -46,6 +46,12 @@ const EditJob = props => {
             value={job.url  || ''} 
             onChange={handleInputChange}/>
 
+            <input type="text" 
+            placeholder="Notes" 
+            name="notes" 
+            value={job.notes  || ''} 
+            onChange={handleInputChange}/>
+
             <button >Save edits</button>
             </form>
         </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 const AddJob = props => {
-    const jobForm = {id: null, compName: '', jobTitle: '', applyBy: '', url: ''}
+    const jobForm = {id: null, compName: '', jobTitle: '', applyBy: '', url: '', notes: ''}
     const [job, setJob] = useState(jobForm)
 
     const handleChange = e => {
@@ -45,6 +45,12 @@ const AddJob = props => {
             placeholder="Website" 
             name="url" 
             value={job.url} 
+            onChange={handleChange} />
+            
+            <input type="text" 
+            placeholder="Notes" 
+            name="notes" 
+            value={job.notes} 
             onChange={handleChange}/>
 
             <button>Add New Job</button>
