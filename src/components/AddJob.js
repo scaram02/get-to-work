@@ -21,7 +21,7 @@ const AddJob = props => {
 
 
     return (
-        <div>
+        <div className="add">
             <form onSubmit={handleSubmit}>
             <input type="text" 
             placeholder="Company Name" 

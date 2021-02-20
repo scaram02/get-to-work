@@ -13,13 +13,13 @@ const handleChange = e => {
 }
 
 const dateSubmitted = new Date().toString().split(' ').slice(1, 4).join(' ')
-const submitMessage = props.finished? `${dateSubmitted}` : ""
+const submitMessage = props.finished? ` ${dateSubmitted}` : "?"
 const icon = props.finished? checkedIcon : uncheckedIcon
 
     return (
         <div className='submit-container'  onClick={handleChange} >
         <img src={icon} alt="checkbox submitted"className='checkbox'/>
-        <p>Submitted {submitMessage}</p>
+        <p>Submitted{submitMessage}</p>
         </div>
     )
 }

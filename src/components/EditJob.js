@@ -20,7 +20,7 @@ const EditJob = props => {
     }, [props])
 
     return (
-        <div>
+        <div className="edit">
            <form onSubmit={handleSubmit}>
             <input type="text" 
             placeholder="Company Name" 
@@ -52,7 +52,7 @@ const EditJob = props => {
             value={job.notes  || ''} 
             onChange={handleInputChange}/>
 
-            <button >Save edits</button>
+            <button>Save edits</button>
             </form>
         </div>
     )

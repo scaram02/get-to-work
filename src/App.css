@@ -29,8 +29,14 @@
   width: 100%;
 }
 
-form {
+.add {
   margin-left: 10px;
+  margin-top: 15px;
+}
+
+.edit {
+  margin-left: 0px;
+  margin-top: 15px;
 }
 
 input {
@@ -38,6 +44,8 @@ input {
   height: 20px;
   /* border: none; */
 }
+
+
 
 button {
   background-color: rgb(20, 192, 135);
@@ -67,3 +75,4 @@ a {
   width: 25px;
   margin: 10px 10px 5px 5px;
 }
+

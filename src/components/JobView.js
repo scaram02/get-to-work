@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import EditJob from './EditJob'
 import Finished from './Finished'
@@ -11,6 +11,11 @@ const JobView = props => {
         return job.id == id
         // console.log("Job dot id", typeof job.id, "ID",typeof  id, job.id === Number(id))
     })
+
+    useEffect(() => {   
+        setEditingJob(false)
+    }, [props]);
+
 
 
     const deleteJob = id => {
